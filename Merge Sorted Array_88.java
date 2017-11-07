@@ -7,6 +7,7 @@ The number of elements initialized in nums1 and nums2 are m and n respectively.
 */
 
 //从后往前parse
+//代码内部省略的部分方便理解
 class Solution {
     public void merge(int[] nums1, int m, int[] nums2, int n) {
         
@@ -17,7 +18,12 @@ class Solution {
             else
                 nums1[k--]=nums1[i--];
         }
-        while(j>=0)
-            nums1[k--]=nums2[j--];
+        //if(j>=0)
+            while(j>=0)
+                nums1[k--]=nums2[j--];
+        //if(i>=0)
+        //  while(i>=0)
+        //  nums1[k--]=nums1[i--];
     }
 }
+
