@@ -13,8 +13,6 @@ Minimize the total number of operations.
 
 class Solution {
     public void moveZeroes(int[] nums) {
-        if(nums==null || nums.length<2)
-            return;
         int i=0, j=0;
         while(j<nums.length){
             if(nums[j]!=0)
