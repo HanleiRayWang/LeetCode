@@ -26,8 +26,10 @@ public class Solution extends Reader4 {
         
         int total=0;                //total chars read
         char[] temp = new char[4];  //temp buffer
-        while(count<4){
-            int count=read4(tmp);
+        boolean eof=false;          //end of file
+          
+        while(!eof && total<n){
+            int count=read4(temp);
             
             //check if it's the end of the file
             eof = (count<4)? true : false;
@@ -37,7 +39,7 @@ public class Solution extends Reader4 {
             
             //copy from temp to buf
             for(int i=0;i<count;i++)
-                buf[total++]=tmp[i];
+                buf[total++]=temp[i];
         
         }
         return total;
