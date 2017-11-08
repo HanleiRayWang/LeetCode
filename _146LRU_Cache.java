@@ -52,8 +52,8 @@ class LRUCache {
     public void put(int key, int value) {
         if (map.containsKey(key)) {
             Node node = map.get(key);
-            node.value = value;
             deleteNode(node);
+            node.value = value;
             addToHead(node);
         } else {
             Node node = new Node(key, value);
@@ -62,6 +62,7 @@ class LRUCache {
                 size++;
                 addToHead(node);
             } else {
+                //Node中包含key就是用在了这里
                 map.remove(tail.prev.key);
                 deleteNode(tail.prev);
                 addToHead(node);
@@ -75,6 +76,8 @@ class LRUCache {
 
 //注意Node内也包含key，相当于Map中包含两次key
 //一次做key，一次做Node中的一个值
+//Node中的key其实就是为了在put操作时
+//如果需要remove最后的一个Node，也需要remove掉map中对应的Node，在Node中放入key方便更新map
 class Node{
     int key;
     int value;
