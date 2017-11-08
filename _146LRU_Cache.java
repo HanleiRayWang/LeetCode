@@ -40,7 +40,7 @@ class LRUCache {
     //  4.把Node插入List最前端
     
     public int get(int key) {
-        if (map.get(key) != null) {
+        if (map.containsKey(key)) {
             Node node = map.get(key);
             deleteNode(node);
             addToHead(node);
@@ -50,7 +50,7 @@ class LRUCache {
     }
     
     public void put(int key, int value) {
-        if (map.get(key) != null) {
+        if (map.containsKey(key)) {
             Node node = map.get(key);
             node.value = value;
             deleteNode(node);
