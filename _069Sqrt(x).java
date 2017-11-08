@@ -15,7 +15,7 @@ class Solution {
         if(x==0)
             return x;
         
-        int left=1, right=Integer.MAX_VALUE;
+        int left=1, right=x;
         while(true){
             int mid=left+(right-left)/2;
             if(mid> x/mid)
