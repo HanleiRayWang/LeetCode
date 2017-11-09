@@ -21,7 +21,7 @@ class Solution {
             x=1/x;
         }
         
-        int half= pow(x*x, n/2);
+        double half= pow(x*x, n/2);
         return (n%2==0)? half : half*x;
     }
 }
