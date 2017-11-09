@@ -11,17 +11,23 @@ Output: 9.26100
 
 */
 
-//recursive
+//recursive, 这个方法
+//1.不需要检查Integer.MIN_VALUE时的情况
+//2.不需要检查x=0时的情况（已经包括在n%2==0中）
 class Solution {
     public double myPow(double x, int n) {
+
         if(n==0)
             return 1;
-        if(n<0){
-            n=-n;
-            x=1/x;
-        }
+
+        double half= myPow(x, n/2);
+        if(n%2==0)
+            return half*half;
+        //如果n为负数，需要将x翻转至分母
+        else if(n<0)
+            return half*half*(1/x);
+        return half*half*x;
         
-        double half= pow(x*x, n/2);
-        return (n%2==0)? half : half*x;
     }
 }
+
