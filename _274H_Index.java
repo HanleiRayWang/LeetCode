@@ -38,6 +38,7 @@ Buckets [1,1,0,1,0, 2]
 class Solution {
     public int hIndex(int[] citations) {
         int len = citations.length;
+        //根据题设，最终结果只可能在0~len之间，因此可以bucket sort
         int[] buckets = new int[len+1];
         for(int c : citations){
             if(c>=len)
