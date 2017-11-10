@@ -47,6 +47,7 @@ class Solution {
                 buckets[c]++;
         }
         int count=0;
+        //从后往前是为了满足题设当中要求返回最大的符合值
         for(int i=len;i>=0;i--){
             count+=buckets[i];
             if(count>=i)
