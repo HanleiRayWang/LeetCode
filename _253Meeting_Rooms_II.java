@@ -27,6 +27,7 @@ return 2.
 
 
 //正常的解法, 使用PriorityQueue/Min_Heap
+//其实和fancy的解法原理是一样的
 class Solution {
     public int minMeetingRooms(Interval[] intervals) {
         if (intervals == null || intervals.length == 0)
