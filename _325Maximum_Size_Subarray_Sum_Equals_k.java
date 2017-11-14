@@ -63,7 +63,7 @@ class Solution {
             //如果在从0开始累加的过程中达到k，则记录maxLen为当前位置，不一定是最长，但是需要记录
             if(sum==k)
                 maxLen=i+1;
-            //如果map中有key+
+            //如果map中有key
             else if(map.containsKey(sum-k))
                 maxLen=Math.max(maxLen, i-map.get(sum-k));
             //如果map中没有key==sum，说明
