@@ -4,7 +4,7 @@ Given a singly linked list, determine if it is a palindrome.
 
 Follow up:
 Could you do it in O(n) time and O(1) space?
-可以把linkedlist变成stack，但是这样是O(n) space
+可以把linkedlist存成stack，再比较stack和原始的list，但是这样是O(n) space
 */
 
 
