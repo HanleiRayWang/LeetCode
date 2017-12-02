@@ -60,13 +60,12 @@ class LRUCache {
             map.put(key, node);
             if (size < capacity) {
                 size++;
-                addToHead(node);
             } else {
                 //Node中包含key就是用在了这里
                 map.remove(tail.prev.key);
                 deleteNode(tail.prev);
-                addToHead(node);
             }
+            addToHead(node);
         }
     }
     
