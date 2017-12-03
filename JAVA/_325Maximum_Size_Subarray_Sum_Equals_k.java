@@ -60,7 +60,8 @@ class Solution {
         HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
         for(int i=0;i<nums.length;i++){
             sum+=nums[i];
-            //如果在从0开始累加的过程中达到k，则记录maxLen为当前位置，不一定是最长，但是需要记录
+            //如果在从0开始累加的过程中达到k，则记录maxLen为当前位置
+            //不一定是最长，但是在循环到当前i的位置，就是最长的，需要记录
             if(sum==k)
                 maxLen=i+1;
             //如果map中有key
