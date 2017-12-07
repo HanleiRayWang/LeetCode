@@ -33,7 +33,6 @@ class Solution {
         for(int i=k, total=sum[k]-sum[0];i<n-2*k;i++){
         
             //左段 [i-k,i)
-            //中段 [i,i+k)
             //但是为了方便计算，sum最前面加入了sum[0]=0
             //所以左段应该是sum[i+1]-sum[i+1-k]
             //注意是 >total
@@ -48,7 +47,6 @@ class Solution {
         int[] posRight = new int[n];
         //i表示右段的开始位置
         for(int i=n-k, total=sum[n]-sum[n-k];i>=2*k;i--){
-            //中段 [i-k,i)
             //右段 [i,i+k)
             //注意是 >=total
             if(sum[i+k]-sum[i]>=total){
