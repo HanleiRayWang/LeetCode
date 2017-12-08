@@ -15,7 +15,7 @@ Return 4.
 
 class Solution {
     public int maximalSquare(char[][] matrix) {
-        int max = 0;
+        int max = 0;//max表示最大正方的边长
         if(matrix==null || matrix.length==0 || matrix[0].length==0)
             return max;
         int[][] dp = new int[matrix.length+1][matrix[0].length+1];
