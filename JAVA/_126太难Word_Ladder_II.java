@@ -99,3 +99,77 @@ class Solution {
 //方法二
 //先做一个BFS找到最小长度，相当于wordLadderI
 //然后根据这个最小长度再去DFS，如果长度大于最小长度就停止DFS，以优化时间
+class Solution {
+    
+    HashMap<String, List<String>> map = new HashMap<String, List<String>>();
+    HashSet<String> doneSet = new HashSet<String>();
+    HashMap<String, Integer> deepsMap = new HashMap<String, Integer>();
+    
+    
+    //O(n),n代表wordList的长度
+    public void buildMap(List<String> wordList, String beginWord){
+        HashSet<String> wordSet = new HashSet<String>();
+        wordSet.add(beginWord);
+        for(String word : wordList)
+            wordSet.add(str);
+        for(String str : wordSet){
+            map.put(str, new LinkedList<String>());
+            diff(str, wordSet);
+        }
+    }
+    public void diff(String s, HashSet<String> wordSet){
+        for(int i=0;i<s.length();i++){
+            StringBuilder sb = new StringBuilder();
+            char curr = s.charAt(i);
+            for(char c='a'; c<='z';c++){
+                if(curr!=c){//可以替换成的26-1=25种情况
+                    sb.setCharAt(i,c);//构建一个新word
+                    if(wordSet.contains(sb.toString()))//查看新word是否在wordList里面
+                        map.get(s).add(sb.toString());
+                }
+            }
+        }
+    }
+    /*  以上， 完成了构建HashMap的过程 */
+    
+    
+    
+    public void DFS(List<String> currList, List<List<String>> result, String target){
+        String curr = currList.get(0);
+        if(currList.size()>minLength)
+            return;
+        else if(currList.size()==minLength){
+            if(currString.equals(target))
+                result.add(new LinkedList<String>(currList));
+        }else{
+            for(String str : map.get(currString)){
+                if(!doneSet.contains(str) && deepsMap.containsKey(str) && deepsMap.get(str)+currDeep<minLength){
+                    currList.addFirst(str);
+                    doneSet.add(str);
+                    DFS(currList, result, target, minLength, currDeep+1);
+                    currList.removeFirst();
+                    doneSet.remove(str);
+                }
+            }
+        }
+        
+
+    }
+
+    
+    public List<List<String>> findLadders(String beginWord, String endWord, List<String> wordList) {
+        buildMap(wordList, beginWord);
+        int minLength = BFS(beginWord, endWord, wordList);
+        doneSet.clear();
+        
+        List<List<String>> result = new LinkedList<List<String>>();
+        
+        List<String> currList = new LinkedList<String>();
+        
+        currList.add(endWord);
+        doneSet.add(endWord);
+        
+        DFS(currList, result, beginWord, minLength, 1);
+        return result;
+    }
+}
