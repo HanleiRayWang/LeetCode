@@ -46,10 +46,8 @@ class Solution {
             return t1;
         
         TreeNode result = new TreeNode(0);
-        if(t1!=null)
-            result.val+=t1.val;
-        if(t2!=null)
-            result.val+=t2.val;
+        result.val+=t1.val;
+        result.val+=t2.val;
         result.left=mergeTrees(t1.left, t2.left);
         result.right=mergeTrees(t1.right, t2.right);
         
