@@ -10,7 +10,7 @@ class Solution {
             return "";
         int len = Integer.MAX_VALUE;
         for(String str : strs)
-            len = Math.min(str.length());
+            len = Math.min(len, str.length());
         int i=0;
         while(i<len){
             for(String str : strs)
